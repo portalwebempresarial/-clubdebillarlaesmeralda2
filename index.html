@@ -6,13 +6,13 @@
     
     <!-- OPTIMIZACIÓN SEO LOCAL -->
     <title>Club de Billar La Esmeralda | Club de Billar a 3 Bandas</title>
-    <meta name="description" content="El mejor club de billar a 3 bandas en [Ciudad], Cundinamarca. Únete a nuestros torneos profesionales y aficionados. Visítanos en [Dirección del club].">
-    <meta name="keywords" content="billar, billar 3 bandas, torneos de billar, club de billar, [Ciudad], Cundinamarca, carambola, Club de Billar La Esmeralda, billar [Ciudad]">
+    <meta name="description" content="El mejor club de billar a 3 bandas en [Ciudad], Cundinamarca. Participa en nuestros campeonatos para todos los niveles. Visítanos en [Dirección del club].">
+    <meta name="keywords" content="billar, billar 3 bandas, campeonatos de billar, club de billar, [Ciudad], Cundinamarca, carambola, Club de Billar La Esmeralda, billar [Ciudad]">
     <meta name="author" content="Club de Billar La Esmeralda">
     <meta name="robots" content="index, follow">
     
-    <meta property="og:title" content="Club de Billar La Esmeralda | Torneos de Billar 3 Bandas">
-    <meta property="og:description" content="Únete al torneo. El mejor nivel de billar a 3 bandas en [Ciudad], Cundinamarca. [Dirección del club].">
+    <meta property="og:title" content="Club de Billar La Esmeralda | Campeonatos de 3 Bandas">
+    <meta property="og:description" content="Inscríbete al campeonato. El mejor nivel de billar a 3 bandas en [Ciudad], Cundinamarca. [Dirección del club].">
     <meta property="og:image" content="logo-esmeralda.png">
     <meta property="og:url" content="https://www.instagram.com/clubdebillarlaesmeralda2/">
     <meta property="og:type" content="website">
@@ -208,7 +208,7 @@
 </head>
 <body>
 
-    <h1 class="seo-h1-oculto">Club de Billar La Esmeralda - Torneo de Billar 3 Bandas en [Ciudad]</h1>
+    <h1 class="seo-h1-oculto">Club de Billar La Esmeralda - Campeonato de Billar 3 Bandas en [Ciudad]</h1>
 
     <a href="https://wa.me/[NUMERO]" class="whatsapp-btn" target="_blank" title="Contactar Organizador">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -222,9 +222,9 @@
     </header>
 
     <nav class="navbar">
-        <button class="tab-btn activa" id="tab-inscripcion" onclick="cambiarPestana('inscripcion', this)">📝 Registro Oficial</button>
-        <button class="tab-btn" id="tab-torneo" onclick="cambiarPestana('torneo', this)">🎱 Iniciar Torneo</button>
-        <button class="tab-btn" id="tab-finales" onclick="cambiarPestana('finales', this)">🏆 Muerte Súbita</button>
+        <button class="tab-btn activa" id="tab-inscripcion" onclick="cambiarPestana('inscripcion', this)">📝 Inscripciones</button>
+        <button class="tab-btn" id="tab-torneo" onclick="cambiarPestana('torneo', this)">🎱 Sorteo y mesas</button>
+        <button class="tab-btn" id="tab-finales" onclick="cambiarPestana('finales', this)">🏆 Eliminatorias</button>
     </nav>
 
     <!-- PANTALLA DE LA RULETA EN VIVO FÍSICA -->
@@ -251,7 +251,7 @@
     <!-- MODAL DE EDICIÓN Y ELIMINACIÓN DE JUGADORES PROTEGIDO CON CLAVE -->
     <div id="modalEdicion" class="modal-overlay">
         <div class="card modal-content">
-            <h2 style="margin-top: 0; color: #b45309;">✏️ Gestionar Jugador</h2>
+            <h2 style="margin-top: 0; color: #b45309;">✏️ Editar jugador</h2>
             <form id="formEdicion">
                 <input type="hidden" id="editId">
                 <div class="form-group">
@@ -267,7 +267,7 @@
                 <div class="form-group">
                     <div class="checkbox-container">
                         <input type="checkbox" id="editPagado">
-                        <label for="editPagado">Inscripción Pagada (Al día)</label>
+                        <label for="editPagado">Pago confirmado</label>
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px; margin-top: 25px; flex-wrap: wrap;">
@@ -281,14 +281,14 @@
 
     <!-- SECCIÓN 1: INSCRIPCIÓN -->
     <section id="seccion-inscripcion" class="seccion activa">
-        <h1 class="titulo-seccion">Inscripción al Torneo</h1>
+        <h1 class="titulo-seccion">Registro de participantes</h1>
         <article class="card">
             
             <div class="aviso-importante">
-                <p>⚠️ <strong>IMPORTANTE:</strong> La categoría seleccionada debe ser previamente consultada y autorizada por la administración.</p>
-                <p>💵 <strong>PAGOS:</strong> Solo se puede marcar "Al día" si <strong>FREDY</strong> confirma por interno el recibido del comprobante.</p>
-                <p>🚫 <strong>CUPOS:</strong> El día del torneo NO se asegura puesto si previamente ya están los cupos llenos.</p>
-                <p>📌 <strong>REQUISITO:</strong> Seguir nuestra cuenta oficial: <a href="https://www.instagram.com/clubdebillarlaesmeralda2/" target="_blank">@clubdebillarlaesmeralda2</a></p>
+                <p>⚠️ <strong>AVISO:</strong> La categoría debe ser confirmada por la administración antes de inscribir.</p>
+                <p>💵 <strong>PAGO:</strong> Marca «Pago confirmado» solo cuando la administración haya recibido el comprobante.</p>
+                <p>🚫 <strong>CUPOS:</strong> Los cupos son limitados. Si se llenan antes del día del campeonato, no hay garantía de lugar.</p>
+                <p>📌 <strong>SÍGUENOS:</strong> nuestra cuenta de Instagram: <a href="https://www.instagram.com/clubdebillarlaesmeralda2/" target="_blank">@clubdebillarlaesmeralda2</a></p>
             </div>
 
             <form id="registroForm">
@@ -297,7 +297,7 @@
                     <input type="text" id="nombre" placeholder="Ej. Torbjörn Blomdahl" required>
                 </div>
                 <div class="form-group">
-                    <label for="categoria">Categoría Asignada (Sujeta a Verificación)</label>
+                    <label for="categoria">Categoría (sujeta a verificación)</label>
                     <select id="categoria" required>
                         <!-- Se autocompleta con JS -->
                     </select>
@@ -305,15 +305,15 @@
                 <div class="form-group">
                     <div class="checkbox-container">
                         <input type="checkbox" id="pagado">
-                        <label for="pagado">Inscripción Pagada (Al día)</label>
+                        <label for="pagado">Pago confirmado</label>
                     </div>
                 </div>
-                <button type="submit" class="btn-accion" id="btnGuardar">Registrar Jugador</button>
+                <button type="submit" class="btn-accion" id="btnGuardar">Agregar jugador</button>
             </form>
         </article>
 
         <article class="card">
-            <h2>Participantes Registrados (<span id="contador" style="color: #ff8c42;">0</span>)</h2>
+            <h2>Jugadores inscritos (<span id="contador" style="color: #ff8c42;">0</span>)</h2>
             <p style="text-align: center; color: #6b6b6b; font-size: 14px;">Aptos para el sorteo: <strong id="contadorAptos" style="color:#06d6a0;">0</strong><br><em>(Haz clic en la foto de un jugador para editar o <b>eliminar</b>)</em></p>
             <table>
                 <thead><tr><th>Jugador</th><th>Nivel</th><th>Meta</th><th style="text-align: center;">Estado</th></tr></thead>
@@ -322,60 +322,60 @@
         </article>
     </section>
 
-    <!-- SECCIÓN 2: INICIAR TORNEO -->
+    <!-- SECCIÓN 2: SORTEO Y MESAS -->
     <section id="seccion-torneo" class="seccion">
         <article class="card" id="panelConfiguracion" style="border-top: 5px solid #ff8c42;">
-            <h2 style="color: #ff8c42; margin-top:0;">⚙️ Configuración del Torneo</h2>
+            <h2 style="color: #ff8c42; margin-top:0;">⚙️ Ajustes del campeonato</h2>
             
             <div class="form-group" style="margin-bottom: 25px;">
-                <label style="color: #b45309; font-size: 16px;">Selecciona la Modalidad</label>
+                <label style="color: #b45309; font-size: 16px;">Formato de competencia</label>
                 <select id="tipoTorneoConfig" style="border-color: #b45309; font-weight: bold;">
-                    <option value="matamata" selected>⚡ Mata Mata (Eliminación Directa Relámpago desde el inicio)</option>
-                    <option value="clasico">🏆 Torneo Clásico (Fase de Grupos + Eliminación)</option>
+                    <option value="matamata" selected>⚡ Muerte Súbita (una derrota elimina, partidas rápidas)</option>
+                    <option value="clasico">🏆 Liga por grupos (grupos y luego eliminatorias)</option>
                 </select>
                 <p style="color: #6b6b6b; font-size: 12px; margin-top: 5px;">* Las metas de carambolas se ajustarán automáticamente según tu elección.</p>
             </div>
 
             <div class="controls-torneo" style="background: none; padding:0; margin:0; justify-content: space-between;">
                 <div class="form-group" style="width: 25%;">
-                    <label>Hora Inicio</label>
+                    <label>Hora de arranque</label>
                     <input type="time" id="horaInicio" value="18:00">
                 </div>
                 <div class="form-group" style="width: 35%;">
-                    <label>Premio Campeón 🥇</label>
+                    <label>Premio del primer lugar 🥇</label>
                     <input type="text" id="inPremio1" placeholder="Ej: $500.000 + Trofeo">
                 </div>
                 <div class="form-group" style="width: 35%;">
-                    <label>Premio Subcampeón 🥈</label>
+                    <label>Premio del segundo lugar 🥈</label>
                     <input type="text" id="inPremio2" placeholder="Ej: $200.000">
                 </div>
             </div>
-            <button class="btn-sorteo" id="btnSorteo" style="width: 100%; margin-top: 15px; padding: 15px; font-size: 18px;">🎲 Iniciar Sorteo Oficial con Ruleta</button>
+            <button class="btn-sorteo" id="btnSorteo" style="width: 100%; margin-top: 15px; padding: 15px; font-size: 18px;">🎲 Lanzar ruleta de sorteo</button>
         </article>
 
         <div style="text-align: center; margin-bottom: 20px;">
-            <button class="btn-terminar" id="btnTerminarTorneo" onclick="terminarTorneoOficial()">🛑 Finalizar Torneo Actual y Limpiar Sistema</button>
+            <button class="btn-terminar" id="btnTerminarTorneo" onclick="terminarTorneoOficial()">🛑 Cerrar campeonato y borrar inscritos</button>
         </div>
 
         <div class="fase-grupos" id="contenedorGrupos"></div>
-        <button class="btn-sorteo" id="btnGenerarFinales" onclick="generarFaseFinal()" style="width: 100%; display: none; margin-top: 20px; padding: 15px; font-size: 16px;">🏆 Finalizar Grupos e Iniciar Muerte Súbita</button>
+        <button class="btn-sorteo" id="btnGenerarFinales" onclick="generarFaseFinal()" style="width: 100%; display: none; margin-top: 20px; padding: 15px; font-size: 16px;">🏆 Terminar grupos y pasar a eliminatorias</button>
     </section>
 
     <!-- SECCIÓN 3: FASE FINAL -->
     <section id="seccion-finales" class="seccion">
         <article class="caja-premios" id="placaPremiacion">
-            <h2>💰 BOTÍN DEL TORNEO 💰</h2>
+            <h2>💰 Premios del campeonato 💰</h2>
             <h3>🥇 Campeón: <span id="txtPremio1"></span></h3>
             <h3 style="font-size: 16px; color:#444;">🥈 Subcampeón: <span id="txtPremio2"></span></h3>
         </article>
 
-        <h1 class="titulo-seccion">Cuadro de Muerte Súbita</h1>
+        <h1 class="titulo-seccion">Cuadro de eliminatorias</h1>
         <div id="contenedorFinales">
             <p style="text-align: center; width: 100%;">La fase final se construirá aquí automáticamente.</p>
         </div>
 
         <div style="text-align: center; margin-top: 30px;">
-            <button class="btn-sorteo" id="btnSiguienteRonda" style="display: none; padding: 15px 30px; font-size: 18px;" onclick="sortearSiguienteRonda()">🎲 Sortear Siguiente Ronda en Vivo</button>
+            <button class="btn-sorteo" id="btnSiguienteRonda" style="display: none; padding: 15px 30px; font-size: 18px;" onclick="sortearSiguienteRonda()">🎲 Sortear próxima ronda</button>
         </div>
     </section>
 
@@ -383,7 +383,7 @@
     <footer class="footer-seo">
         <p><strong>Club de Billar La Esmeralda</strong> | Club de Billar a 3 Bandas</p>
         <p>📍 [Dirección del club], [Ciudad], Cundinamarca, Colombia</p>
-        <p>📱 Síguenos en <a href="https://www.instagram.com/clubdebillarlaesmeralda2/" target="_blank">Instagram</a> para más torneos de billar.</p>
+        <p>📱 Síguenos en <a href="https://www.instagram.com/clubdebillarlaesmeralda2/" target="_blank">Instagram</a> para enterarte de los próximos campeonatos.</p>
     </footer>
 
     <script type="module">
@@ -519,7 +519,7 @@
                                 setTimeout(() => { cambiarPestana('torneo', document.getElementById('tab-torneo')); }, 200);
                             }
                         } else {
-                            document.getElementById('contenedorGrupos').innerHTML = '<h3 style="color:#6b6b6b;">Modo MATA MATA Activo. Continúa en la pestaña de Muerte Súbita.</h3>';
+                            document.getElementById('contenedorGrupos').innerHTML = '<h3 style="color:#6b6b6b;">Modo muerte súbita activo. Continúa en la pestaña de Eliminatorias.</h3>';
                             document.getElementById('btnGenerarFinales').style.display = 'none';
                             renderizarFaseFinal();
                             setTimeout(() => { cambiarPestana('finales', document.getElementById('tab-finales')); }, 200);
@@ -531,9 +531,9 @@
         cargarEstadoTorneo();
 
         window.terminarTorneoOficial = async function() {
-            const password = prompt("Seguridad del Sistema:\nIngrese la contraseña de administrador para finalizar el torneo:");
-            if (password !== "2026*") { alert("❌ Contraseña incorrecta."); return; }
-            if(confirm("¡ATENCIÓN! ¿Seguro que deseas finalizar el torneo?\nEsto limpiará el cuadro por completo y ELIMINARÁ A TODOS LOS JUGADORES INSCRITOS para el próximo evento.")) {
+            const password = prompt("Acceso de administración:\nIngrese la contraseña de administrador para cerrar el campeonato:");
+            if (password !== "Colombia 2026 *") { alert("❌ Contraseña incorrecta."); return; }
+            if(confirm("¡ATENCIÓN! ¿Cerrar el campeonato?\nSe borrará el cuadro y TODOS LOS JUGADORES INSCRITOS para el próximo evento.")) {
                 window.torneoActivo = false; window.grupos = []; window.faseEliminacion = { rondas: [], rondaActiva: 0, campeon: null };
                 
                 try {
@@ -598,15 +598,15 @@
             try {
                 await addDoc(collection(db, "jugadores"), { nombre, categoria, pagado, foto: avatarUrl, claseColor: colorClases[categoria], fechaRegistro: new Date() });
                 this.reset();
-            } catch (error) { alert("Error al guardar: Verifique el formato."); } finally { btn.disabled = false; btn.textContent = 'Registrar Jugador'; }
+            } catch (error) { alert("Error al guardar: Verifique el formato."); } finally { btn.disabled = false; btn.textContent = 'Agregar jugador'; }
         });
 
         // ==========================================
-        // 🔒 SISTEMA DE SEGURIDAD PARA EDICIÓN / ELIMINACIÓN
+        // 🔒 ACCESO DE ADMINISTRACIÓN PARA EDICIÓN / ELIMINACIÓN
         // ==========================================
         window.abrirModalEdicion = function(id) {
-            const password = prompt("🔒 Seguridad del Sistema:\nIngrese la contraseña de administrador para editar o eliminar a este jugador:");
-            if (password !== "2026*") { 
+            const password = prompt("🔒 Acceso de administración:\nIngrese la contraseña de administrador para editar o eliminar a este jugador:");
+            if (password !== "Colombia 2026 *") { 
                 alert("❌ Contraseña incorrecta. Solo el administrador tiene permiso para esta acción."); 
                 return; 
             }
@@ -817,7 +817,7 @@
                     if(j2.esLibre) {
                         document.getElementById('ruletaMesa').innerHTML = `${nombreFase} <br><span style="font-size:22px; color:#06d6a0;">🎁 SORTEO DE PASE DIRECTO (BYE)</span>`;
                         let poolRestante = mezclados.slice(i * 2).filter(x => !x.esLibre);
-                        await animarRuleta("Sorteando al afortunado (Avanza sin jugar)...", j1, poolRestante);
+                        await animarRuleta("Sorteando el pase directo...", j1, poolRestante);
                         
                         let htmlLog = `
                             <div class="ruleta-log-item" style="border-left-color: #0a7f5f; border-color: #0a7f5f;">
@@ -836,10 +836,10 @@
                         document.getElementById('ruletaMesa').innerHTML = `${nombreFase} - MESA ${mesaNumero} <br><span style="font-size:22px; color:#fff;">🕒 ${formatoAMPM(partido.horaInt)}</span>`;
                         
                         let poolRestanteJ1 = mezclados.slice(i * 2).filter(x => !x.esLibre);
-                        await animarRuleta("Sorteando Primer Jugador...", j1, poolRestanteJ1);
+                        await animarRuleta("Sorteando primer jugador...", j1, poolRestanteJ1);
                         
                         let poolRestanteJ2 = mezclados.slice((i * 2) + 1).filter(x => !x.esLibre);
-                        await animarRuleta("Sorteando al Rival...", j2, poolRestanteJ2);
+                        await animarRuleta("Sorteando al rival...", j2, poolRestanteJ2);
                         
                         let htmlLog = `
                             <div class="ruleta-log-item">
@@ -852,14 +852,14 @@
                         logContainer.insertAdjacentHTML('beforeend', htmlLog);
                         logContainer.scrollTop = logContainer.scrollHeight;
 
-                        document.getElementById('ruletaSub').textContent = `¡Partido fijado! Siguiente...`;
+                        document.getElementById('ruletaSub').textContent = `¡Cruce confirmado! Siguiente...`;
                         await sleep(1500);
                     }
                 }
             }
 
             document.getElementById('ruletaMesa').innerHTML = `¡SORTEO FINALIZADO! 🎱`;
-            document.getElementById('ruletaSub').textContent = `Las mesas están en el tablero inferior. ¡Que gane el mejor!`;
+            document.getElementById('ruletaSub').textContent = `Los cruces están en el cuadro. ¡Mucha suerte!`;
             
             await sleep(5000); 
             cine.style.display = 'none';
@@ -870,20 +870,20 @@
 
         document.getElementById('btnSorteo').addEventListener('click', async () => {
             if(window.torneoActivo) {
-                alert("⚠️ Ya hay un torneo en curso. Debes finalizar el actual con el botón rojo de administrador antes de iniciar uno nuevo.");
+                alert("⚠️ Ya hay un campeonato en curso. Debes cerrarlo antes de iniciar otro.");
                 return;
             }
 
             const password = prompt("Ingrese clave de administrador:");
-            if (password !== "2026*") { alert("❌ Clave incorrecta."); return; }
+            if (password !== "Colombia 2026 *") { alert("❌ Clave incorrecta."); return; }
 
             const jugadoresAptos = window.inscritosGlobal.filter(j => j.pagado === true);
             if (jugadoresAptos.length < 4) { alert(`Mínimo 4 jugadores pagados para iniciar.`); return; }
             
             window.tipoTorneo = document.getElementById('tipoTorneoConfig').value;
-            let msg = window.tipoTorneo === 'clasico' ? "Fase de Grupos" : "MATA MATA (Eliminación Directa)";
+            let msg = window.tipoTorneo === 'clasico' ? "Etapa de grupos" : "MUERTE SÚBITA (Eliminación Directa)";
 
-            if (confirm(`Se iniciará la RULETA EN VIVO: ${msg} con ${jugadoresAptos.length} jugadores.\n¿Proyectar en pantalla gigante?`)) {
+            if (confirm(`Se lanzará la ruleta en vivo: ${msg} con ${jugadoresAptos.length} jugadores.\n¿Proyectar en pantalla gigante?`)) {
                 window.torneoActivo = true; 
                 window.premiacion.primero = document.getElementById('inPremio1').value || "Trofeo y Efectivo";
                 window.premiacion.segundo = document.getElementById('inPremio2').value || "Efectivo";
@@ -935,13 +935,13 @@
                         let p0 = grupo.participantes[0];
                         let p1 = grupo.participantes[1];
 
-                        document.getElementById('ruletaMesa').innerHTML = `ASIGNANDO MESA ${mesaNumero} <br><span style="font-size:20px; color:#fff;">${grupo.nombre} | ${formatoAMPM(hora)}</span>`;
+                        document.getElementById('ruletaMesa').innerHTML = `UBICANDO MESA ${mesaNumero} <br><span style="font-size:20px; color:#fff;">${grupo.nombre} | ${formatoAMPM(hora)}</span>`;
                         
                         let poolRestanteJ1 = mezclados.slice(i * 4);
-                        await animarRuleta("Sorteando Cabeza de Serie...", p0, poolRestanteJ1);
+                        await animarRuleta("Sorteando primer jugador...", p0, poolRestanteJ1);
                         
                         let poolRestanteJ2 = mezclados.slice((i * 4) + 1);
-                        await animarRuleta("Sorteando Rival...", p1, poolRestanteJ2);
+                        await animarRuleta("Sorteando al rival...", p1, poolRestanteJ2);
                         
                         let htmlLog = `
                             <div class="ruleta-log-item">
@@ -954,7 +954,7 @@
                         logContainer.insertAdjacentHTML('beforeend', htmlLog);
                         logContainer.scrollTop = logContainer.scrollHeight;
 
-                        document.getElementById('ruletaSub').textContent = `¡Grupo anotado! Siguiente...`;
+                        document.getElementById('ruletaSub').textContent = `¡Grupo confirmado! Siguiente...`;
                         await sleep(1500);
                     }
 
@@ -964,7 +964,7 @@
                     document.getElementById('btnGenerarFinales').style.display = 'block';
 
                 } else {
-                    document.getElementById('contenedorGrupos').innerHTML = '<h3 style="color:#6b6b6b;">Modo MATA MATA Activo. El torneo se desarrolla en la pestaña de Gran Final.</h3>';
+                    document.getElementById('contenedorGrupos').innerHTML = '<h3 style="color:#6b6b6b;">Modo muerte súbita activo. El campeonato se desarrolla en la pestaña Eliminatorias.</h3>';
                     await ejecutarSorteoRondaRuleta(jugadoresAptos, "RONDA 1");
                 }
             }
@@ -985,8 +985,8 @@
         };
 
         window.sortearSiguienteRonda = async function() {
-            const password = prompt("Ingrese clave para sortear la siguiente fase:");
-            if (password !== "2026*") { alert("❌ Clave incorrecta."); return; }
+            const password = prompt("Ingrese la clave para sortear la próxima ronda:");
+            if (password !== "Colombia 2026 *") { alert("❌ Clave incorrecta."); return; }
             
             let ultimaRonda = window.faseEliminacion.rondas[window.faseEliminacion.rondaActiva].partidos;
             let ganadores = ultimaRonda.map(p => p.ganador).filter(g => g !== null && !g.esLibre);
@@ -1005,10 +1005,10 @@
             }
         }
 
-        // --- SISTEMA DE CORRECCIÓN ---
+        // --- CORRECCIÓN DE MARCADORES ---
         window.revertirMarcadorGrupo = async function(gIdx, pIdx) {
-            const password = prompt("Seguridad del Sistema:\nIngrese clave de administrador para corregir el marcador:");
-            if (password !== "2026*") { alert("❌ Clave incorrecta."); return; }
+            const password = prompt("Acceso de administración:\nIngrese clave de administrador para corregir el marcador:");
+            if (password !== "Colombia 2026 *") { alert("❌ Clave incorrecta."); return; }
 
             const grupo = window.grupos[gIdx];
             const partido = grupo.partidos[pIdx];
@@ -1036,8 +1036,8 @@
         };
 
         window.revertirMarcadorFinal = async function(rIdx, pIdx) {
-            const password = prompt("Seguridad del Sistema:\nIngrese clave de administrador para corregir el marcador:");
-            if (password !== "2026*") { alert("❌ Clave incorrecta."); return; }
+            const password = prompt("Acceso de administración:\nIngrese clave de administrador para corregir el marcador:");
+            if (password !== "Colombia 2026 *") { alert("❌ Clave incorrecta."); return; }
 
             if (rIdx < window.faseEliminacion.rondas.length - 1) {
                 if(!confirm("⚠️ ATENCIÓN: Estás modificando una ronda anterior. Esto eliminará los sorteos de las rondas siguientes para recalcular el cuadro. ¿Continuar?")) return;
@@ -1127,7 +1127,7 @@
                 if(rondaActual.length === 1) { 
                     window.faseEliminacion.campeon = rondaActual[0].ganador;
                     if(window.faseEliminacion.campeon && window.faseEliminacion.campeon.nombre === '🚫 AMBOS ELIMINADOS') {
-                        alert("Torneo finalizado sin campeón (Doble W.O. en la final).");
+                        alert("Campeonato sin ganador (doble W.O. en la final).");
                     } else {
                         alert(`🎉 ¡CAMPEÓN: ${window.faseEliminacion.campeon.nombre}! 🎉`); 
                     }
@@ -1160,12 +1160,12 @@
                         </div>`;
                     
                     if(!partido.jugado) {
-                        html += `<div class="inputs-marcador"><input type="number" id="g${gIdx}p${pIdx}s1" class="input-score" placeholder="Pts"><input type="number" id="g${gIdx}p${pIdx}s2" class="input-score" placeholder="Pts"></div><button class="btn-guardar-score" onclick="guardarResultadoGrupo(${gIdx}, ${pIdx})">💾 Guardar Marcador</button>`;
+                        html += `<div class="inputs-marcador"><input type="number" id="g${gIdx}p${pIdx}s1" class="input-score" placeholder="Pts"><input type="number" id="g${gIdx}p${pIdx}s2" class="input-score" placeholder="Pts"></div><button class="btn-guardar-score" onclick="guardarResultadoGrupo(${gIdx}, ${pIdx})">💾 Registrar marcador</button>`;
                     } else {
                         html += `<div style="color: #b45309; font-size: 20px; font-weight: bold; margin-top: 10px;">${partido.s1} - ${partido.s2}</div>
                                  <div style="display:flex; justify-content:center; gap:10px; align-items:center; margin-top: 5px;">
                                      <div style="color: #0a7f5f; font-size: 12px;">Finalizado</div>
-                                     <button class="btn-corregir-score" onclick="revertirMarcadorGrupo(${gIdx}, ${pIdx})">✏️ Corregir</button>
+                                     <button class="btn-corregir-score" onclick="revertirMarcadorGrupo(${gIdx}, ${pIdx})">✏️ Editar marcador</button>
                                  </div>`;
                     }
                     html += `</div>`;
@@ -1180,7 +1180,7 @@
             if (window.faseEliminacion.campeon && window.faseEliminacion.campeon.nombre !== '🚫 AMBOS ELIMINADOS') {
                 document.getElementById('btnSiguienteRonda').style.display = 'none';
                 contenedor.innerHTML = `<div class="campeon-box">
-                    🏆 ¡GRAN CAMPEÓN DEL TORNEO! 🏆<br>
+                    🏆 ¡CAMPEÓN DEL CAMPEONATO! 🏆<br>
                     <img src="${window.faseEliminacion.campeon.foto}" class="avatar" style="width:80px;height:80px;margin-top:15px;border:3px solid #000;">
                     <br>${window.faseEliminacion.campeon.nombre}
                 </div>`;
@@ -1208,7 +1208,7 @@
 
                     if(!partido.jugado) {
                         if(partido.j1 && partido.j2 && partido.j1.nombre !== 'Esperando...' && partido.j2.nombre !== 'Esperando...') {
-                            html += `<div class="inputs-marcador"><input type="number" id="f_r${rIdx}p${pIdx}s1" class="input-score" placeholder="Pts"><input type="number" id="f_r${rIdx}p${pIdx}s2" class="input-score" placeholder="Pts"></div><button class="btn-guardar-score" style="background: linear-gradient(45deg, #3d348b, #7b6cf6);" onclick="guardarMarcadorFinal(${rIdx}, ${pIdx})">💾 Guardar y Avanzar</button>`;
+                            html += `<div class="inputs-marcador"><input type="number" id="f_r${rIdx}p${pIdx}s1" class="input-score" placeholder="Pts"><input type="number" id="f_r${rIdx}p${pIdx}s2" class="input-score" placeholder="Pts"></div><button class="btn-guardar-score" style="background: linear-gradient(45deg, #3d348b, #7b6cf6);" onclick="guardarMarcadorFinal(${rIdx}, ${pIdx})">💾 Registrar y avanzar</button>`;
                         } else {
                             html += `<div style="color: #6b6b6b; margin-top:10px;">Esperando resultados anteriores...</div>`;
                         }
@@ -1222,7 +1222,7 @@
                             html += `<div style="color: #0a7f5f; font-size: 16px; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px;">⭐ Avanza: ${partido.ganador?.nombre || 'N/A'}</div>`;
                         }
 
-                        html += `    <button class="btn-corregir-score" onclick="revertirMarcadorFinal(${rIdx}, ${pIdx})">✏️ Corregir</button>
+                        html += `    <button class="btn-corregir-score" onclick="revertirMarcadorFinal(${rIdx}, ${pIdx})">✏️ Editar marcador</button>
                                  </div>`;
                     }
                     html += `</div>`;
