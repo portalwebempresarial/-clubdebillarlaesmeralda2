@@ -1088,10 +1088,10 @@
             renderizarGrupos(); await guardarEstadoTorneo();
         };
 
-        // Gana quien llega más cerca de (o pasa) su meta: carambolas / meta. Así un jugador de menor categoría con 7 de meta 7 le gana a uno de meta 12 con 10.
-        function ratioPartido(rIdx, pIdx, lado, carambolas) {
+        // La partida termina cuando uno llega a su meta: ese jugador gana.
+        function llegoAMeta(rIdx, pIdx, lado, carambolas) {
             const jugador = window.faseEliminacion.rondas[rIdx].partidos[pIdx][lado];
-            return carambolas / (getMeta(jugador.categoria) || 1);
+            return carambolas >= (getMeta(jugador.categoria) || 1);
         }
 
         window.guardarMarcadorFinal = async function(rIdx, pIdx) {
@@ -1102,8 +1102,8 @@
             
             if (s1 === 0 && s2 === 0) {
                 if(!confirm("⚠️ Ambos marcadores están en 0.\n¿Confirmas que AMBOS JUGADORES QUEDAN ELIMINADOS (Doble W.O.)?")) return;
-            } else if (ratioPartido(rIdx, pIdx, 'j1', s1) === ratioPartido(rIdx, pIdx, 'j2', s2)) { 
-                alert("Empate en relación a la meta. Revisa los marcadores."); 
+            } else if (llegoAMeta(rIdx, pIdx, 'j1', s1) === llegoAMeta(rIdx, pIdx, 'j2', s2)) { 
+                alert("Debe llegar a su meta solo uno de los dos. Revisa los marcadores."); 
                 return; 
             }
 
@@ -1115,7 +1115,7 @@
             if (s1 === 0 && s2 === 0) {
                 partido.ganador = { id: 'doble_wo', nombre: '🚫 AMBOS ELIMINADOS', categoria: 'Amateur', foto: generarAvatarBillar('X'), claseColor: 'bg-amateur', esLibre: true };
             } else {
-                partido.ganador = (ratioPartido(rIdx, pIdx, 'j1', s1) > ratioPartido(rIdx, pIdx, 'j2', s2)) ? partido.j1 : partido.j2;
+                partido.ganador = llegoAMeta(rIdx, pIdx, 'j1', s1) ? partido.j1 : partido.j2;
             }
 
             verificarAvanceRonda(rIdx); renderizarFaseFinal(); await guardarEstadoTorneo(); 
