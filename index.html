@@ -260,7 +260,7 @@
                     <input type="text" id="editNombre" required>
                 </div>
                 <div class="form-group">
-                    <label>WhatsApp</label>
+                    <label>WhatsApp (opcional)</label>
                     <input type="tel" id="editWhatsapp" placeholder="Ej. 3001234567" inputmode="numeric">
                 </div>
                 <div class="form-group">
@@ -302,8 +302,8 @@
                     <input type="text" id="nombre" placeholder="Ej. Torbjörn Blomdahl" required>
                 </div>
                 <div class="form-group">
-                    <label for="whatsapp">WhatsApp del participante</label>
-                    <input type="tel" id="whatsapp" placeholder="Ej. 3001234567" inputmode="numeric" required>
+                    <label for="whatsapp">WhatsApp del participante (opcional)</label>
+                    <input type="tel" id="whatsapp" placeholder="Ej. 3001234567" inputmode="numeric">
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría (sujeta a verificación)</label>
@@ -613,8 +613,9 @@
             const nombre = document.getElementById('nombre').value;
             const categoria = document.getElementById('categoria').value;
             const pagado = document.getElementById('pagado').checked; 
-            const whatsapp = normalizarWhatsapp(document.getElementById('whatsapp').value);
-            if (!whatsapp) { alert("Escribe un número de WhatsApp válido (10 dígitos, ej. 3001234567)."); btn.disabled = false; btn.textContent = 'Agregar jugador'; return; }
+            const whatsappRaw = document.getElementById('whatsapp').value;
+            const whatsapp = whatsappRaw.trim() === '' ? '' : normalizarWhatsapp(whatsappRaw);
+            if (whatsappRaw.trim() !== '' && !whatsapp) { alert("El número de WhatsApp no es válido (10 dígitos, ej. 3001234567). Puedes dejarlo vacío."); btn.disabled = false; btn.textContent = 'Agregar jugador'; return; }
             const avatarUrl = generarAvatarBillar(nombre);
             try {
                 await addDoc(collection(db, "jugadores"), { nombre, categoria, pagado, whatsapp, foto: avatarUrl, claseColor: colorClases[categoria], fechaRegistro: new Date() });
