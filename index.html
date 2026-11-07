@@ -225,6 +225,7 @@
         <button class="tab-btn activa" id="tab-inscripcion" onclick="cambiarPestana('inscripcion', this)">📝 Inscripciones</button>
         <button class="tab-btn" id="tab-torneo" onclick="cambiarPestana('torneo', this)">🎱 Sorteo y mesas</button>
         <button class="tab-btn" id="tab-finales" onclick="cambiarPestana('finales', this)">🏆 Eliminatorias</button>
+        <button class="tab-btn" id="tab-manual" onclick="cambiarPestana('manual', this)">📖 Manual</button>
     </nav>
 
     <!-- PANTALLA DE LA RULETA EN VIVO FÍSICA -->
@@ -380,6 +381,9 @@
     </section>
 
     <!-- FOOTER SEO LOCAL -->
+    <section id="seccion-manual" class="seccion">
+        <iframe src="manual.html" title="Manual de uso del torneo" loading="lazy" style="width:100%;height:82vh;min-height:520px;border:0;border-radius:16px;background:#fff;"></iframe>
+    </section>
     <footer class="footer-seo">
         <p><strong>Club de Billar La Esmeralda</strong> | Club de Billar a 3 Bandas</p>
         <p>📍 [Dirección del club], [Ciudad], Cundinamarca, Colombia</p>
@@ -392,13 +396,12 @@
 
         // ¡RECUERDA PONER TUS CLAVES EXACTAS DE FIREBASE AQUÍ!
         const firebaseConfig = {
-            apiKey: "AIzaSyB10yXxA6Oyvz-xDyJuX7RKj7QhNju85mo",
-            authDomain: "esmeralda-billar-placeholder.firebaseapp.com",
-            projectId: "esmeralda-billar-placeholder",
-            storageBucket: "esmeralda-billar-placeholder.firebasestorage.app",
-            messagingSenderId: "782227033522",
-            appId: "1:782227033522:web:70f029b38617dfff21a8ab",
-            measurementId: "G-MKBCHYQ86T"
+            apiKey: "AIzaSyC1VFUf3Fd18OzKe9s4-7k30vmHsUd59lM",
+            authDomain: "esmeralda-billar-afa88.firebaseapp.com",
+            projectId: "esmeralda-billar-afa88",
+            storageBucket: "esmeralda-billar-afa88.firebasestorage.app",
+            messagingSenderId: "209355183279",
+            appId: "1:209355183279:web:5725e17b0fb14ed6a3305a"
         };
 
         const app = initializeApp(firebaseConfig);
