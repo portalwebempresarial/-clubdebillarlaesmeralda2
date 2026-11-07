@@ -364,6 +364,7 @@
 
         <div style="text-align: center; margin-bottom: 20px;">
             <button class="btn-terminar" id="btnTerminarTorneo" onclick="terminarTorneoOficial()">🛑 Cerrar campeonato y borrar inscritos</button>
+            <p style="margin-top:10px; font-size:13px; color:#6b6b6b;">Base de datos conectada: <strong id="proyectoActivo"></strong></p>
         </div>
 
         <div class="fase-grupos" id="contenedorGrupos"></div>
@@ -413,6 +414,9 @@
         };
 
         const app = initializeApp(firebaseConfig);
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('proyectoActivo'); if (el) el.textContent = firebaseConfig.projectId;
+        });
         const db = getFirestore(app);
 
         // --- REGLAS (AÑADIDA CATEGORÍA SÚPER MASTER) ---
@@ -551,9 +555,32 @@
         window.terminarTorneoOficial = async function() {
             const password = prompt("Acceso de administración:\nIngrese la contraseña de administrador para cerrar el campeonato:");
             if (password !== "Colombia 2026 *") { alert("❌ Contraseña incorrecta."); return; }
-            if(confirm("¡ATENCIÓN! ¿Cerrar el campeonato?\nSe borrará el cuadro y TODOS LOS JUGADORES INSCRITOS para el próximo evento.")) {
+            const confirmacion = prompt("Para confirmar, escribe la palabra ESMERALDA (en mayúsculas).\nEsto borra los inscritos de ESTE club (" + firebaseConfig.projectId + ") y guarda un respaldo antes:");
+            if (confirmacion !== "ESMERALDA") { alert("Cancelado. No se borró nada."); return; }
+            if(confirm("¡ATENCIÓN! ¿Cerrar el campeonato?\nSe guardará un respaldo y luego se borrarán los jugadores inscritos.")) {
+                // 1) Respaldo ANTES de borrar. Si falla, no se borra nada.
+                try {
+                    const jugadoresSnap = await getDocs(collection(db, "jugadores"));
+                    const jugadoresRespaldo = [];
+                    jugadoresSnap.forEach((documento) => jugadoresRespaldo.push({ id: documento.id, ...documento.data() }));
+                    let torneoRespaldo = null;
+                    const torneoSnap = await getDoc(doc(db, "torneos", "actual"));
+                    if (torneoSnap.exists()) torneoRespaldo = torneoSnap.data();
+                    await addDoc(collection(db, "respaldos"), {
+                        fecha: new Date(),
+                        proyecto: firebaseConfig.projectId,
+                        jugadores: JSON.stringify(jugadoresRespaldo),
+                        torneo: JSON.stringify(torneoRespaldo)
+                    });
+                } catch (e) {
+                    console.error("No se pudo crear el respaldo; no se borró nada", e);
+                    alert("❌ No se pudo guardar el respaldo. Por seguridad NO se borró nada. Revisa la conexión e inténtalo de nuevo.");
+                    return;
+                }
+
                 window.torneoActivo = false; window.grupos = []; window.faseEliminacion = { rondas: [], rondaActiva: 0, campeon: null };
-                
+
+                // 2) Borrar solo los jugadores de ESTE proyecto
                 try {
                     const querySnapshot = await getDocs(collection(db, "jugadores"));
                     const promesasDeBorrado = [];
