@@ -260,6 +260,10 @@
                     <input type="text" id="editNombre" required>
                 </div>
                 <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="tel" id="editWhatsapp" placeholder="Ej. 3001234567" inputmode="numeric">
+                </div>
+                <div class="form-group">
                     <label>Categoría</label>
                     <select id="editCategoria" required>
                         <!-- Las opciones se inyectan via JS -->
@@ -296,6 +300,10 @@
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" id="nombre" placeholder="Ej. Torbjörn Blomdahl" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp del participante</label>
+                    <input type="tel" id="whatsapp" placeholder="Ej. 3001234567" inputmode="numeric" required>
                 </div>
                 <div class="form-group">
                     <label for="categoria">Categoría (sujeta a verificación)</label>
@@ -440,6 +448,13 @@
         };
         window.actualizarSelectsCategorias();
 
+        function normalizarWhatsapp(valor) {
+            const digitos = (valor || '').replace(/\D/g, '');
+            if (digitos.length === 10 && digitos.startsWith('3')) return '57' + digitos;
+            if (digitos.length === 12 && digitos.startsWith('57')) return digitos;
+            return '';
+        }
+
         function generarAvatarBillar(nombre) {
             if(!nombre) nombre = "X";
             let charCode = 0;
@@ -581,6 +596,7 @@
                     <td><div style="display:flex; align-items:center;">
                         <img src="${data.foto}" class="avatar avatar-clic" onclick="abrirModalEdicion('${data.id}')" title="Clic para editar o eliminar"> 
                         <strong>${data.nombre}</strong>
+                        ${data.whatsapp ? `<a href="https://wa.me/${data.whatsapp}" target="_blank" rel="noopener" title="Escribir por WhatsApp a ${data.whatsapp}" style="margin-left:8px; text-decoration:none; font-size:18px;">💬</a>` : '<span title="Sin WhatsApp registrado" style="margin-left:8px; font-size:14px; opacity:.5;">📵</span>'}
                     </div></td>
                     <td><span class="badge ${data.claseColor}">${data.categoria}</span></td>
                     <td><strong style="color: #b45309; font-size: 16px;">${getMeta(data.categoria)}</strong></td>
@@ -597,9 +613,11 @@
             const nombre = document.getElementById('nombre').value;
             const categoria = document.getElementById('categoria').value;
             const pagado = document.getElementById('pagado').checked; 
+            const whatsapp = normalizarWhatsapp(document.getElementById('whatsapp').value);
+            if (!whatsapp) { alert("Escribe un número de WhatsApp válido (10 dígitos, ej. 3001234567)."); btn.disabled = false; btn.textContent = 'Agregar jugador'; return; }
             const avatarUrl = generarAvatarBillar(nombre);
             try {
-                await addDoc(collection(db, "jugadores"), { nombre, categoria, pagado, foto: avatarUrl, claseColor: colorClases[categoria], fechaRegistro: new Date() });
+                await addDoc(collection(db, "jugadores"), { nombre, categoria, pagado, whatsapp, foto: avatarUrl, claseColor: colorClases[categoria], fechaRegistro: new Date() });
                 this.reset();
             } catch (error) { alert("Error al guardar: Verifique el formato."); } finally { btn.disabled = false; btn.textContent = 'Agregar jugador'; }
         });
@@ -618,6 +636,7 @@
             if (!jugador) return;
             document.getElementById('editId').value = jugador.id;
             document.getElementById('editNombre').value = jugador.nombre;
+            document.getElementById('editWhatsapp').value = jugador.whatsapp || '';
             document.getElementById('editCategoria').value = jugador.categoria;
             document.getElementById('editPagado').checked = jugador.pagado || false;
             document.getElementById('modalEdicion').style.display = 'flex';
@@ -631,9 +650,12 @@
             const nombre = document.getElementById('editNombre').value;
             const categoria = document.getElementById('editCategoria').value;
             const pagado = document.getElementById('editPagado').checked;
+            const whatsappRaw = document.getElementById('editWhatsapp').value;
+            const whatsapp = whatsappRaw.trim() === '' ? '' : normalizarWhatsapp(whatsappRaw);
+            if (whatsappRaw.trim() !== '' && !whatsapp) { alert("El número de WhatsApp no es válido (10 dígitos, ej. 3001234567)."); return; }
             const avatarUrl = generarAvatarBillar(nombre);
             try {
-                await updateDoc(doc(db, "jugadores", id), { nombre, categoria, pagado, foto: avatarUrl, claseColor: colorClases[categoria] });
+                await updateDoc(doc(db, "jugadores", id), { nombre, categoria, pagado, whatsapp, foto: avatarUrl, claseColor: colorClases[categoria] });
                 cerrarModalEdicion();
             } catch(error) { alert("Error al actualizar: " + error.message); }
         });
