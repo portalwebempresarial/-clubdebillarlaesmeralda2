@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de uso | Club de Billar La Esmeralda</title>
+<style>
+:root { --bg:#f7f8fb; --card:#ffffff; --fg:#14161f; --muted:#5c6378; --line:#e3e6ef; --accent:#4f46e5; --accent2:#d946ef; --note:#fff7e6; --note-line:#f5c26b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0e1019; --card:#171a26; --fg:#eef0f7; --muted:#a0a8bf; --line:#2a2f42; --accent:#8b86ff; --accent2:#e879f9; --note:#2a2315; --note-line:#8a6a22; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg:#0e1019; --card:#171a26; --fg:#eef0f7; --muted:#a0a8bf; --line:#2a2f42; --accent:#8b86ff; --accent2:#e879f9; --note:#2a2315; --note-line:#8a6a22; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; padding: max(0px, env(safe-area-inset-top,0px)) max(16px, env(safe-area-inset-right,0px)) 40px max(16px, env(safe-area-inset-left,0px)); }
+main { max-width: 880px; margin: 0 auto; }
+h1 { font-size: clamp(30px, 6vw, 44px); line-height:1.1; margin: 28px 0 8px; text-wrap: balance; background: linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+h2 { font-size: 24px; margin: 48px 0 12px; padding-top: 8px; border-top: 1px solid var(--line); text-wrap: balance; }
+h3 { font-size: 18px; margin: 28px 0 8px; }
+p, li { max-width: 68ch; }
+.lead { color: var(--muted); font-size: 18px; }
+.toc { display:grid; gap:8px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin: 24px 0; padding:0; list-style:none; }
+.toc a { display:block; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--card); color:var(--fg); text-decoration:none; }
+.toc a:hover { border-color: var(--accent); }
+figure { margin: 18px 0 26px; background: var(--card); border:1px solid var(--line); border-radius: 14px; padding: 10px; }
+figure img { display:block; width:100%; height:auto; border-radius:8px; }
+figcaption { color: var(--muted); font-size: 14px; padding: 10px 4px 2px; }
+.step { display:grid; grid-template-columns: 40px 1fr; gap: 14px; align-items:start; margin: 14px 0; }
+.step b { display:grid; place-items:center; width:40px; height:40px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; }
+.note { background: var(--note); border-left: 5px solid var(--note-line); padding: 14px 16px; border-radius: 10px; margin: 18px 0; }
+.formula { background: var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; overflow-x:auto; }
+footer { margin-top: 56px; color: var(--muted); font-size: 14px; }
+a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <p class="lead">Club de Billar La Esmeralda</p>
+  <h1>Manual de Campeonatos La Esmeralda</h1>
+  <p class="lead">Guía paso a paso para inscribir participantes, sortear mesas y horarios, registrar marcadores y cerrar el campeonato. Las capturas muestran la aplicación con jugadores de ejemplo.</p>
+
+  <ul class="toc">
+    <li><a href="#inscripcion">1. Inscripciones</a></li>
+    <li><a href="#ajustes">2. Ajustes del campeonato</a></li>
+    <li><a href="#sorteo">3. Ruleta de sorteo</a></li>
+    <li><a href="#horarios">4. Cálculo de horarios</a></li>
+    <li><a href="#marcadores">5. Registrar marcadores</a></li>
+    <li><a href="#liga">6. Liga por grupos</a></li>
+    <li><a href="#cierre">7. Cerrar el campeonato</a></li>
+  </ul>
+
+  <h2 id="inscripcion">1. Inscripciones</h2>
+  <p>Abre la pestaña <strong>Inscripciones</strong>. Ahí se registran los participantes antes del campeonato.</p>
+  <figure><img src="manual-matamata-01-inicio.webp" alt="Pantalla principal con las pestañas"><figcaption>Pantalla principal. Las pestañas son Inscripciones, Sorteo y mesas, y Eliminatorias.</figcaption></figure>
+  <div class="step"><b>1</b><div>Escribe el nombre completo del participante.</div></div>
+  <div class="step"><b>2</b><div>Elige la categoría: Súper Master, Master, Intermedio, Normal o Amateur. La administración confirma la categoría antes de inscribir.</div></div>
+  <div class="step"><b>3</b><div>Marca <em>Pago confirmado</em> solo cuando la administración haya recibido el comprobante. Sin esa marca, el participante queda inscrito pero no entra al sorteo.</div></div>
+  <figure><img src="manual-matamata-02-formulario.webp" alt="Formulario de registro"><figcaption>Formulario de registro con el participante listo para guardar.</figcaption></figure>
+  <div class="step"><b>4</b><div>Pulsa <strong>Agregar jugador</strong>. El participante aparece en la tabla con su bola, su categoría y su meta de carambolas.</div></div>
+  <figure><img src="manual-matamata-03-lista-jugadores.webp" alt="Tabla de jugadores inscritos"><figcaption>Jugadores inscritos. El contador muestra el total y cuántos están aptos para el sorteo.</figcaption></figure>
+  <div class="note"><strong>Nota:</strong> Los participantes sin pago confirmado aparecen con ❌ y no entran al sorteo.</div>
+
+  <h3>Editar o eliminar un participante</h3>
+  <p>Haz clic en la bola del participante en la tabla. Pide la clave de administración. Desde la ventana puedes cambiar nombre, categoría o estado de pago, o eliminarlo.</p>
+  <figure><img src="manual-matamata-04-editar-jugador.webp" alt="Ventana para editar jugador"><figcaption>Ventana para editar un participante.</figcaption></figure>
+
+  <h2 id="ajustes">2. Ajustes del campeonato</h2>
+  <p>Abre <strong>Sorteo y mesas</strong> y define los datos antes de sortear.</p>
+  <figure><img src="manual-matamata-05-configuracion.webp" alt="Ajustes del campeonato"><figcaption>Ajustes: formato, hora de arranque y premios.</figcaption></figure>
+  <ul>
+    <li><strong>Formato de competencia:</strong> <em>Muerte Súbita</em> (eliminación directa) o <em>Liga por grupos</em> (grupos y luego eliminatorias).</li>
+    <li><strong>Hora de arranque:</strong> la hora en que empieza el primer partido. Por defecto son las 6:00 PM.</li>
+    <li><strong>Premios:</strong> texto libre para el primer y segundo lugar. Aparece en el bloque de premios del campeonato.</li>
+  </ul>
+  <p>Las metas de carambolas cambian según la categoría y el formato. Revísalas en la tabla de jugadores antes de empezar.</p>
+
+  <h2 id="sorteo">3. Ruleta de sorteo</h2>
+  <p>Pulsa <strong>Lanzar ruleta de sorteo</strong>. Se pide la clave de administración y luego una confirmación. Se necesitan al menos 4 participantes con pago confirmado.</p>
+  <figure><img src="manual-matamata-06-ruleta-inicio.webp" alt="Ruleta en pantalla completa"><figcaption>La ruleta se proyecta en pantalla completa. Muestra la mesa y la hora de cada partido.</figcaption></figure>
+  <figure><img src="manual-matamata-07-ruleta-asignando.webp" alt="Ruleta girando"><figcaption>Cada cruce se sortea en dos giros: primero el primer jugador y luego su rival.</figcaption></figure>
+  <p>Al terminar, el registro de la parte inferior muestra cada cruce con su mesa. Si el número de participantes es impar, uno queda <strong>LIBRE</strong> y avanza directo a la siguiente ronda.</p>
+
+  <h2 id="horarios">4. Cálculo de horarios</h2>
+  <p>El sistema asigna los horarios automáticamente. Hay 5 mesas y cada partido dura 45 minutos.</p>
+  <h3>Muerte Súbita</h3>
+  <ol>
+    <li>Todas las mesas empiezan a la hora de arranque configurada.</li>
+    <li>Cada partido ocupa su mesa durante 45 minutos.</li>
+    <li>La siguiente ronda empieza cuando termina el último partido de la ronda anterior.</li>
+  </ol>
+  <figure><img src="manual-matamata-08-cuadro-ronda1.webp" alt="Cuadro de la ronda 1 con horarios"><figcaption>Ronda 1: las mesas empiezan a las 6:00 PM y terminan a las 6:45 PM.</figcaption></figure>
+  <figure><img src="manual-matamata-08-cuadro-ronda-2.webp" alt="Cuadro de la ronda 2 con horarios"><figcaption>Ronda 2: empieza a las 6:45 PM, cuando terminó la ronda 1. Cada tarjeta muestra la mesa y el rango de horas.</figcaption></figure>
+  <div class="formula">Inicio del partido = hora de inicio de la ronda<br>Fin del partido = inicio + 45 minutos</div>
+  <div class="note"><strong>Ejemplo:</strong> con arranque a las 6:00 PM, un partido va de 6:00 a 6:45 PM. Si una ronda tiene 3 partidos, se juegan a la vez en las mesas 1, 2 y 3.</div>
+  <h3>Liga por grupos</h3>
+  <p>En la etapa de grupos, cada grupo tiene 4 participantes, es decir 6 partidos. Los partidos de un grupo se juegan en la misma mesa, uno después de otro.</p>
+  <figure><img src="manual-clasico-03-grupos-horarios.webp" alt="Grupos con horarios"><figcaption>Grupo A en la mesa 1 y Grupo B en la mesa 2. Los seis partidos de cada grupo van de 6:00 PM a 10:30 PM.</figcaption></figure>
+
+  <h2 id="marcadores">5. Registrar marcadores</h2>
+  <p>En <strong>Eliminatorias</strong> aparece el cuadro. Escribe el marcador de cada partido y pulsa <strong>Registrar y avanzar</strong>. El ganador pasa a la siguiente ronda.</p>
+  <h3>Regla de Muerte Súbita</h3>
+  <div class="note"><strong>La partida termina cuando un jugador llega a su meta, y gana quien llega primero.</strong> Escribe las carambolas de los dos jugadores al terminar. El sistema gana al jugador que alcanzó su meta:
+    <ul>
+      <li>Si solo uno alcanzó su meta, gana ese jugador. Por ejemplo, Normal con 7 de meta 7 gana a Master con 10 de meta 12.</li>
+      <li>Si ambos alcanzaron su meta, o ninguno la alcanzó, el sistema no guarda el resultado. Revisa los marcadores.</li>
+    </ul>
+  </div>
+  <figure><img src="manual-matamata-09-resultados-ronda-1.webp" alt="Resultados de la ronda 1"><figcaption>Resultados registrados. Cada ganador aparece como “Avanza”. Para corregir un marcador usa el botón Editar marcador.</figcaption></figure>
+  <p>Cuando todos los partidos de la ronda tienen resultado, aparece el botón de la siguiente ronda.</p>
+  <figure><img src="manual-matamata-10-boton-siguiente-ronda-1.webp" alt="Botón de la siguiente ronda"><figcaption>Botón <strong>Sortear próxima ronda</strong>. Pide la clave y vuelve a mostrar la ruleta.</figcaption></figure>
+  <figure><img src="manual-matamata-11-ruleta-ronda-2.webp" alt="Ruleta de la ronda 2"><figcaption>Ruleta de la ronda 2 con los ganadores.</figcaption></figure>
+  <figure><img src="manual-matamata-14-cuadro-final.webp" alt="Cuadro final"><figcaption>Cuadro final con el campeón y los premios del campeonato.</figcaption></figure>
+
+  <h2 id="liga">6. Liga por grupos</h2>
+  <p>En la liga por grupos primero se juega la etapa de grupos y luego la etapa de eliminatorias.</p>
+  <figure><img src="manual-clasico-01-configuracion-clasico.webp" alt="Ajustes de liga por grupos"><figcaption>Selecciona <em>Liga por grupos</em> en los ajustes.</figcaption></figure>
+  <figure><img src="manual-clasico-04-grupos-resultados.webp" alt="Tabla de grupos"><figcaption>Cada grupo registra sus resultados. La tabla ordena por puntos y, si hay empate, por carambolas. Los dos primeros de cada grupo clasifican.</figcaption></figure>
+  <figure><img src="manual-clasico-05-boton-fase-final.webp" alt="Botón para pasar a eliminatorias"><figcaption>Cuando todos los grupos terminan, aparece <strong>Terminar grupos y pasar a eliminatorias</strong>.</figcaption></figure>
+  <figure><img src="manual-clasico-07-cuadro-fase-final.webp" alt="Cuadro de eliminatorias"><figcaption>Cuadro de eliminatorias, con los clasificados sorteados en la ruleta.</figcaption></figure>
+
+  <h2 id="cierre">7. Cerrar el campeonato</h2>
+  <p>Al terminar, el administrador usa <strong>Cerrar campeonato y borrar inscritos</strong>. La aplicación pide la clave y confirma. <strong>Esta acción borra a todos los participantes inscritos</strong>, así que hazla solo cuando el campeonato haya terminado y los premios estén entregados.</p>
+
+  <div class="note"><strong>Para la administración:</strong> la clave de administración la entrega el organizador y no se comparte con los participantes.</div>
+
+  <footer>Manual para usuarios · Club de Billar La Esmeralda</footer>
+</main>
+</body>
+</html>
